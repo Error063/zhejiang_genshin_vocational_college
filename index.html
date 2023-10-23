@@ -52,7 +52,7 @@ setTimeout(() => {
     console.log(current_college.domain);
     message.innerText = '抽到的学校是：'
     setTimeout(() => {
-        location.href = "http://" + current_college.domain;
+        location.href = "https://" + current_college.domain;
     }, 300)
 }, Math.floor(Math.random() * colleges.length) * 100);
 </script>
