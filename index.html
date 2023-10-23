@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浙江原神职业技术学院</title>
+</head>
+<body>
+<div style="margin: auto;">
+    <h1 id="message">正在随机挑选一个学校...</h1>
+    <h1 id="college-name"></h1>
+    <span style="font-size: 10px;">域名均从人工智能处获取，不保证所有网站均可正常访问，不对所有网页内容负责。</span>
+</div>
+
+</body>
+<script>
+let colleges = [
+    {name: "宁波职业技术学院", domain: "www.nbpt.edu.cn"},
+    {name: "温州职业技术学院", domain: "www.wzvtc.cn"},
+    {name: "浙江交通职业技术学院", domain: "www.zjvtit.edu.cn"},
+    {name: "金华职业技术学院", domain: "www.jhc.cn"},
+    {name: "宁波城市职业技术学院", domain: "www.nbcit.edu.cn"},
+    {name: "浙江电力职业技术学院", domain: "www.zjepit.edu.cn"},
+    {name: "浙江同济科技职业学院", domain: "www.zjtongji.edu.cn"},
+    {name: "浙江工商职业技术学院", domain: "www.zjvcc.edu.cn"},
+    {name: "台州职业技术学院", domain: "www.tzvtc.edu.cn"},
+    {name: "浙江工贸职业技术学院", domain: "www.zjiet.edu.cn"},
+    {name: "浙江机电职业技术学院", domain: "www.zime.edu.cn"},
+    {name: "浙江建设职业技术学院", domain: "www.zjjs.edu.cn"},
+    {name: "浙江艺术职业学院", domain: "www.zjarts.com"},
+    {name: "浙江经贸职业技术学院", domain: "www.zjiet.net"},
+    {name: "浙江商业职业技术学院", domain: "www.zjvcc.net"},
+    {name: "浙江经济职业技术学院", domain: "www.zjevc.net"},
+    {name: "浙江旅游职业学院", domain: "www.zjtvc.com"},
+    {name: "浙江警官职业学院", domain: "www.zjjy.net"},
+    {name: "浙江金融职业学院", domain: "www.zfc.edu.cn"},
+    {name: "浙江工业职业技术学院", domain: "www.zjit.net"},
+    {name: "浙江长征职业技术学院", domain: "www.zjczxy.cn"}
+];
+
+let message = document.querySelector('#message');
+let college_name = document.querySelector('#college-name');
+let i = 0;
+let current_college;
+let the_loop = setInterval(() => {
+    current_college = colleges[i % colleges.length]
+    college_name.innerText = current_college.name;
+    i++;
+}, 50);
+
+setTimeout(() => {
+    clearInterval(the_loop);
+    console.log(current_college.domain);
+    message.innerText = '抽到的学校是：'
+    setTimeout(() => {
+        location.href = "http://" + current_college.domain;
+    }, 300)
+}, Math.floor(Math.random() * colleges.length) * 100);
+</script>
+</html>
