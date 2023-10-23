@@ -46,14 +46,28 @@ let the_loop = setInterval(() => {
     college_name.innerText = current_college.name;
     i++;
 }, 50);
-
+// let random_stop_time = Math.random() * 21 * 100;
+let  random_stop_time = 1145.14
+let enable_mihomo = false
+if('1145141919810114514'.indexOf(Math.ceil(random_stop_time).toString()) || '1145141919810114514'.indexOf(Math.floor(random_stop_time).toString()) !== -1){
+    enable_mihomo = true;
+}
 setTimeout(() => {
     clearInterval(the_loop);
     console.log(current_college.domain);
     message.innerText = '抽到的学校是：'
-    setTimeout(() => {
-        location.href = "https://" + current_college.domain;
-    }, 300)
-}, Math.floor(Math.random() * colleges.length) * 100);
+    if(!enable_mihomo) {
+        let domain = current_college.domain
+        setTimeout(() => {
+            location.href = "https://" + domain;
+        }, 300)
+    }else {
+        setTimeout(() => {
+            message.innerText = '即将开始下载原神PC端启动器...';
+            college_name.innerText = '在完成稍后安装下载的步骤步骤后，您就可以启动原神进行学习了！';
+            location.href = 'https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/pc_default';
+        }, 300)
+    }
+}, random_stop_time);
 </script>
 </html>
